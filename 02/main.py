@@ -1,38 +1,38 @@
-def set_opcode(noun, verb):
-  opcode = []
+def set_intcode(noun, verb):
+    intcode = []
 
-  with open("input.txt", "r") as file:
-    for value in file.read().split(","):
-      opcode.append(int(value))
+    with open("input.txt", "r") as file:
+        for value in file.read().split(","):
+            intcode.append(int(value))
 
-  opcode[1] = noun
-  opcode[2] = verb
+    intcode[1] = noun
+    intcode[2] = verb
 
-  return opcode
+    return intcode
 
-def compute(opcode):
-  index = 0
+def compute(intcode):
+    index = 0
 
-  while index < len(opcode):
-    if opcode[index] == 1:
-      opcode[opcode[index+3]] = opcode[opcode[index+1]] + opcode[opcode[index+2]]
-    elif opcode[index] == 2:
-      opcode[opcode[index+3]] = opcode[opcode[index+1]] * opcode[opcode[index+2]]
-    elif opcode[index] == 99:
-      break
-    else:
-      print("wtf?")
+    while index < len(intcode):
+        if intcode[index] == 1:
+            intcode[intcode[index+3]] = intcode[intcode[index+1]] + intcode[intcode[index+2]]
+        elif intcode[index] == 2:
+            intcode[intcode[index+3]] = intcode[intcode[index+1]] * intcode[intcode[index+2]]
+        elif intcode[index] == 99:
+            break
+        else:
+            print("wtf?")
 
-    index += 4
+        index += 4
 
 def find(value):
-  for noun in range(100):
-    for verb in range(100):
-      opcode = set_opcode(noun, verb)
-      compute(opcode)
-      if opcode[0] == value:
-        return (noun, verb)
+    for noun in range(100):
+        for verb in range(100):
+            intcode = set_intcode(noun, verb)
+            compute(intcode)
+            if intcode[0] == value:
+                return (noun, verb)
+
 
 noun, verb = find(19690720)
-
 print(100 * noun + verb)
