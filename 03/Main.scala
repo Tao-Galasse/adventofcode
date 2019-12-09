@@ -60,14 +60,30 @@ object Main {
     return distances.min
   }
 
+  def lessSteps(intersectionPoints:ArrayBuffer[Tuple2[Int, Int]],
+                pointsWire1:ArrayBuffer[Tuple2[Int, Int]],
+                pointsWire2:ArrayBuffer[Tuple2[Int, Int]]) : Int = {
+    var steps = ArrayBuffer[Int]()
+
+    for(point <- intersectionPoints) {
+      steps += pointsWire1.indexOf(point) + pointsWire2.indexOf(point)
+    }
+
+    return steps.min
+  }
+
   def main(args: Array[String]): Unit = {
     val (wire1, wire2) = readFile
     val pointsWire1 = getPointsFromWire(wire1)
     val pointsWire2 = getPointsFromWire(wire2)
     val intersectionPoints = pointsWire1.intersect(pointsWire2) -= Tuple2(0, 0)
-    val distance = shortestManhattanDistance(intersectionPoints)
 
-    print("shortest Manhattan distance : ")
-    println(distance)
+    // val distance = shortestManhattanDistance(intersectionPoints)
+    // print("shortest Manhattan distance : ")
+    // println(distance)
+
+    val steps = lessSteps(intersectionPoints, pointsWire1, pointsWire2)
+    print("closest intersection by steps : ")
+    println(steps)
   }
 }
