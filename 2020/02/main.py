@@ -26,7 +26,7 @@ def build_dictionary(line):
 
 
 # Return true if a password is valid, following the sled rental place policy
-def valid_password1(dictionary):
+def valid_password_sled_rental_place(dictionary):
     occurrences = dictionary["password"].count(dictionary["letter"])
     return (occurrences >= dictionary["min"] and
             occurrences <= dictionary["max"])
@@ -34,25 +34,26 @@ def valid_password1(dictionary):
 
 # Return true if a password is valid,
 # following the Official Toboggan Corporate Policy
-def valid_password2(dictionary):
+def valid_password_toboggan_corporate(dictionary):
     letter1 = dictionary["password"][dictionary["min"] - 1]
     letter2 = dictionary["password"][dictionary["max"] - 1]
 
-    if letter1 == letter2:
-        return False
-
-    return letter1 == dictionary["letter"] or letter2 == dictionary["letter"]
+    return ((letter1 == dictionary["letter"]) !=
+            (letter2 == dictionary["letter"]))
 
 
 # Call the correct valid_password method following the given policy
 def valid_password(dictionary, policy):
-    if policy == 1:
-        return valid_password1(dictionary)
-    return valid_password2(dictionary)
+    if policy == "sled_rental_place":
+        return valid_password_sled_rental_place(dictionary)
+    if policy == "toboggan_corporate":
+        return valid_password_toboggan_corporate(dictionary)
+    print("invalid policy!")
+    return 0
 
 
 # Return the number of valid passwords in a list of dictionaries,
-# following a policy: 1 for the sled rental place, 2 for the Toboggan Corporate
+# following a policy: "sled_rental_place" or "toboggan_corporate"
 def number_of_valid_passwords(dictionaries, policy):
     count = 0
     for dictionary in dictionaries:
@@ -63,6 +64,8 @@ def number_of_valid_passwords(dictionaries, policy):
 
 dictionaries = parse_input("input.txt")
 # Puzzle 1
-print("Puzzle 1 answer:", number_of_valid_passwords(dictionaries, 1))
+print("Puzzle 1 answer:",
+      number_of_valid_passwords(dictionaries, "sled_rental_place"))
 # Puzzle 2
-print("Puzzle 2 answer:", number_of_valid_passwords(dictionaries, 2))
+print("Puzzle 2 answer:",
+      number_of_valid_passwords(dictionaries, "toboggan_corporate"))

@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-# Return values from input file as an array of integers
-def expenses():
+# Return values from an input file as an array of integers
+def expenses(filename):
     expenses = []
 
-    with open("input.txt", "r") as file:
+    with open(filename, "r") as file:
         for expense in file.read().splitlines():
             expenses.append(int(expense))
 
@@ -29,7 +29,7 @@ def find_sum_of_three_values(report):
 
 
 # Puzzle 1
-expense_report = expenses()
+expense_report = expenses("input.txt")
 expense1, expense2 = find_sum_of_two_values(expense_report)
 print("Puzzle 1 answer is:", expense1 * expense2)
 
