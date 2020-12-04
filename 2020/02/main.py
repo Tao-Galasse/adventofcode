@@ -28,8 +28,7 @@ def build_dictionary(line):
 # Return true if a password is valid, following the sled rental place policy
 def valid_password_sled_rental_place(dictionary):
     occurrences = dictionary["password"].count(dictionary["letter"])
-    return (occurrences >= dictionary["min"] and
-            occurrences <= dictionary["max"])
+    return dictionary["min"] <= occurrences <= dictionary["max"]
 
 
 # Return true if a password is valid,
