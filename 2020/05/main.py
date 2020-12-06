@@ -5,10 +5,7 @@ import math
 
 # Parse lines from an input file to get the list of boarding passes
 def get_passes(filename):
-    file = open(filename)
-    passes = file.read().splitlines()
-    file.close()
-    return passes
+    return open(filename, "r").read().splitlines()
 
 
 # Return the number of the row corresponding to a given boarding pass
