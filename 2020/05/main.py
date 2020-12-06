@@ -67,7 +67,8 @@ def get_ordered_seat_ids(passes):
 
 # Return the missing ID (mine!) from an ordered list of seat IDs
 def find_missing_id(ordered_ids):
-    for id in range(ordered_ids[0], ordered_ids[-1] + 1):
+    # My place is not the first nor the last, so we skip them in the loop
+    for id in range(ordered_ids[1], ordered_ids[-1]):
         if id not in ordered_ids:
             return id
 
