@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
-# TODO: import me from day 1
 # Return values from an input file as a list of integers
 def read_numbers_from_file(filename):
     return [int(i) for i in open(filename, "r").read().splitlines()]
 
 
-# TODO: import me from day 1
+# NB: copied from day 1
 # Find two values in a list giving a sum equal to the one given in param
 def find_sum_of_two_values(report, sum):
     for i in range(0, len(report)):
@@ -17,23 +16,21 @@ def find_sum_of_two_values(report, sum):
 
 # Return the first invalid number in the list of XMAS numbers
 def find_invalid_number(preamble):
-    for index in range(preamble, len(NUMBERS)):
-        if not find_sum_of_two_values(NUMBERS[index-preamble:index], NUMBERS[index]):
-            return NUMBERS[index]
+    for idx in range(preamble, len(NUMBERS)):
+        if not find_sum_of_two_values(NUMBERS[idx-preamble:idx], NUMBERS[idx]):
+            return NUMBERS[idx]
 
 
 # Return the list of contiguous numbers equal to the one given in param
 def find_contiguous_numbers_equal_to(number):
     for start_index in range(len(NUMBERS)):
         sum = 0
-        contiguous_numbers = []
         for current_index in range(start_index, len(NUMBERS)):
             sum += NUMBERS[current_index]
-            contiguous_numbers.append(NUMBERS[current_index])
             if sum > number:
                 break
             if sum == number:
-                return contiguous_numbers
+                return NUMBERS[start_index:current_index+1]
 
 
 NUMBERS = read_numbers_from_file("input.txt")
