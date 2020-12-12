@@ -49,6 +49,8 @@ def get_next_layout(seats, visibility_rule):
     next_layout = copy.deepcopy(seats)
     for row in range(len(seats)):
         for col in range(len(seats[0])):
+            if seats[row][col] == ".":
+                continue  # to avoid calculate occupied seats if unnecessary
             occupied_seats = eval(f"count_occupied_{visibility_rule}_seats")(
                 seats, row, col
             )
