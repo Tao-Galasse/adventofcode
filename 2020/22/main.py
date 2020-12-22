@@ -64,11 +64,12 @@ def play_recursive_combat_round(deck1, deck2):
 
 # Play the Recursive Combat game and return the winner's and loser's decks
 def play_recursive_combat_game(deck1, deck2):
-    memoized_decks = []
+    memoized_decks = set()
     while len(deck1) > 0 and len(deck2) > 0:
-        if (deck1, deck2) in memoized_decks:  # anti infinite loop rule
+        decks = tuple(deck1), tuple(deck2)
+        if decks in memoized_decks:  # anti infinite loop rule
             return deck1
-        memoized_decks.append((copy.deepcopy(deck1), copy.deepcopy(deck2)))
+        memoized_decks.add(decks)
         play_recursive_combat_round(deck1, deck2)
     return deck1 if len(deck1) > 0 else deck2
 
