@@ -6,7 +6,7 @@ def iterate
   @timers[6] += timer_to_zero
 end
 
-@timers = Hash.new(0).merge(File.read('input.txt').split(',').map(&:to_i).group_by(&:itself).transform_values(&:count))
+@timers = Hash.new(0).merge(File.read('input.txt').split(',').map(&:to_i).tally)
 80.times { iterate }
 puts "part 1: #{@timers.values.sum} lanternfish would be there after 80 days"
 176.times { iterate } # 256 - 80 = 176
