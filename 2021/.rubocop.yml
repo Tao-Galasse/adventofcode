@@ -1,2 +1,5 @@
 AllCops:
   TargetRubyVersion: 2.7.5
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison
