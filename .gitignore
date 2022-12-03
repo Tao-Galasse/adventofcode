@@ -1,6 +1,9 @@
 ### OSX ###
 *.DS_Store
 
+### Environment ###
+.env
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
