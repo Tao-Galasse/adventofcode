@@ -12,6 +12,6 @@ def count_all_overlaps(pairs)
   end
 end
 
-pairs = File.readlines('input.txt', chomp: true).map { |p| p.match('^(\d+)-(\d+),(\d+)-(\d+)')[1..].map(&:to_i) }
+pairs = File.readlines('input.txt').map { |p| p.match('^(\d+)-(\d+),(\d+)-(\d+)')[1..].map(&:to_i) }
 puts "part 1: #{count_full_overlaps(pairs)}"
 puts "part 2: #{count_all_overlaps(pairs)}"
