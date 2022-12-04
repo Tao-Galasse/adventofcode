@@ -8,7 +8,7 @@ end
 
 def count_all_overlaps(pairs)
   pairs.inject(0) do |total, (p1_min, p1_max, p2_min, p2_max)|
-    (p1_min <= p2_max && p2_min <= p1_max) || (p2_min <= p1_max && p1_min <= p2_max) ? total + 1 : total
+    p1_min <= p2_max && p2_min <= p1_max ? total + 1 : total
   end
 end
 
