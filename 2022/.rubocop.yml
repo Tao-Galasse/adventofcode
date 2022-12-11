@@ -8,5 +8,8 @@ Metrics/MethodLength:
 Naming/MethodParameterName:
   MinNameLength: 1
 
+Security/Eval:
+  Enabled: false
+
 Style/NumberedParametersLimit:
   Max: 2
