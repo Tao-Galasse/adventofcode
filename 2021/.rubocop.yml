@@ -1,5 +1,14 @@
 AllCops:
   TargetRubyVersion: 2.7.5
 
+Metrics/MethodLength:
+  Max: 15
+
+Naming/MethodParameterName:
+  MinNameLength: 1
+
+Security/Eval:
+  Enabled: false
+
 Style/NumericPredicate:
   EnforcedStyle: comparison
