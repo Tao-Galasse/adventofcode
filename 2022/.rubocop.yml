@@ -13,3 +13,6 @@ Security/Eval:
 
 Style/NumberedParametersLimit:
   Max: 2
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison
