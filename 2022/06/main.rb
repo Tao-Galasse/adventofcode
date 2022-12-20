@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 def find_marker(signal, length)
-  index = 0
-  loop do
-    return index + length if signal[index..(index + length - 1)].chars.uniq.count == length
-
-    index += 1
+  loop.with_index do |_, i|
+    return i + length if signal[i..(i + length - 1)].chars.uniq.count == length
   end
 end
 
