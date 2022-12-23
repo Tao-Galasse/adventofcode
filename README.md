@@ -7,4 +7,4 @@ My Advent of Code attempts through the years 🎄🎁🎅
 **2019:** 18/50 ⭐️ *(multi-language)*  
 **2020:** 50/50 ⭐️ *(Python)*  
 **2021:** 50/50 ⭐️ *(Ruby)*  
-**2022:** 36/50 ⭐️ *(Ruby)*  
+**2022:** 38/50 ⭐️ *(Ruby)*  
