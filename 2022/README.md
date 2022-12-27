@@ -4,4 +4,4 @@
 
 Here we go again for another year of AoC! 🙌
 
-### Completion : 38/50 ⭐️
+### Completion : 40/50 ⭐️
